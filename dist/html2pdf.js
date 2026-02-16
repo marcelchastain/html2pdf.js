@@ -1179,6 +1179,10 @@ Worker.prototype.toPdf = function toPdf() {
 
       // Add the page to the PDF.
       if (page) this.prop.pdf.addPage();
+
+      // Fill the PDF page background with the specified color
+      this.prop.pdf.setFillColor(this.opt.pageBackground);
+      this.prop.pdf.rect(0, 0, this.prop.pageSize.width, this.prop.pageSize.height, 'F');
       var imgData = pageCanvas.toDataURL('image/' + opt.image.type, opt.image.quality);
       this.prop.pdf.addImage(imgData, opt.image.type, opt.margin[1], opt.margin[0], this.prop.pageSize.inner.width, pageHeight);
     }
