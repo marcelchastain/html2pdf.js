@@ -47,6 +47,7 @@ Worker.template = {
   opt: {
     filename: 'file.pdf',
     margin: [0,0,0,0],
+    pageBackground: 'white',
     image: { type: 'jpeg', quality: 0.95 },
     enableLinks: true,
     html2canvas: {},
@@ -110,7 +111,7 @@ Worker.prototype.toContainer = function toContainer() {
     var containerCSS = {
       position: 'absolute', width: this.prop.pageSize.inner.width + this.prop.pageSize.unit,
       left: 0, right: 0, top: 0, height: 'auto', margin: 'auto',
-      backgroundColor: 'white'
+      backgroundColor: this.opt.pageBackground
     };
 
     // Set the overlay to hidden (could be changed in the future to provide a print preview).
@@ -207,7 +208,7 @@ Worker.prototype.toPdf = function toPdf() {
       // Display the page.
       var w = pageCanvas.width;
       var h = pageCanvas.height;
-      pageCtx.fillStyle = 'white';
+      pageCtx.fillStyle = this.opt.pageBackground;
       pageCtx.fillRect(0, 0, w, h);
       pageCtx.drawImage(canvas, 0, page*pxPageHeight, w, h, 0, 0, w, h);
 

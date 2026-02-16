@@ -2,6 +2,7 @@ declare module "html2pdf.js" {
   interface Html2PdfOptions {
     margin?: number | [number, number] | [number, number, number, number];
     filename?: string;
+    pageBackground?: string;
     image?: {
       type?: "jpeg" | "png" | "webp";
       quality?: number;

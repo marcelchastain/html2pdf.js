@@ -146,6 +146,7 @@ var element = document.getElementById('element-to-print');
 var opt = {
   margin:       1,
   filename:     'myfile.pdf',
+  pageBackground: '#f0f0f0',
   image:        { type: 'jpeg', quality: 0.98 },
   html2canvas:  { scale: 2 },
   jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
@@ -164,6 +165,7 @@ The `opt` parameter has the following optional fields:
 |------------|----------------|--------------------------------|------------------------------------------------------------------------------------------------------------|
 |margin      |number or array |`0`                             |PDF margin (in jsPDF units). Can be a single number, `[vMargin, hMargin]`, or `[top, left, bottom, right]`. |
 |filename    |string          |`'file.pdf'`                    |The default filename of the exported PDF.                                                                   |
+|pageBackground|string        |`'white'`                       |The background color of PDF pages. Accepts any valid CSS color string (hex, rgb, rgba, named colors).       |
 |pagebreak   |object          |`{mode: ['css', 'legacy']}`     |Controls the pagebreak behaviour on the page. See [Page-breaks](#page-breaks) below.                        |
 |image       |object          |`{type: 'jpeg', quality: 0.95}` |The image type and quality used to generate the PDF. See [Image type and quality](#image-type-and-quality) below.|
 |enableLinks |boolean         |`true`                          |If enabled, PDF hyperlinks are automatically added ontop of all anchor tags.                                |
